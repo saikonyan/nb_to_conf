@@ -23,7 +23,7 @@ setup(
     license='BSD 3-Clause',
     entry_points = {
         'console_scripts': [
-            'nb_to_conf = nbconflux.cli:main:'
+            'nb_to_conf = nbconflux.cli:main'
         ]
     },
     install_requires=[
