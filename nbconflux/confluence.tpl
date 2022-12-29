@@ -11,15 +11,17 @@
 {%- endblock header %}
 
 {% block codecell %}
-<p class="border-box-sizing code_cell rendered">
+<br/>
 {{ super() }}
-</p>
+
 {%- endblock codecell %}
 
 {% block input_group -%}
-<div class="input">
+
+
 {{ super() }}
-</div>
+
+
 {% endblock input_group %}
 
 {% block output_group %}
@@ -57,11 +59,17 @@ In&nbsp;[&nbsp;]:
 {% endblock output_prompt %}
 
 {% block input %}
-<div class="inner_cell">
-    <div class="input_area">
-{{ cell.source | highlight_code(metadata=cell.metadata) }}
-</div>
-</div>
+<ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="272223b3-72d2-437d-84fa-3e4d9578d1ff">
+
+<ac:parameter ac:name="linenumbers">true</ac:parameter>
+<ac:parameter ac:name="language">py</ac:parameter>
+
+<ac:plain-text-body>
+<![CDATA[
+{{ cell.source | highlight_code(metadata=cell.metadata)  }}
+ ]]>
+</ac:plain-text-body>
+</ac:structured-macro>
 {%- endblock input %}
 
 {% block output %}

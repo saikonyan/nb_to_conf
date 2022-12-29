@@ -331,6 +331,8 @@ class ConfluenceExporter(HTMLExporter):
             with open(self.notebook_filename, encoding='utf-8') as f:
                 self.add_or_update_attachment(self.notebook_filename, f.read(), resources)
 
+
+
         return html, resources
 
     def from_filename(self, filename, *args, **kwargs):
