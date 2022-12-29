@@ -9,7 +9,7 @@ except:
     print('Failed to load README.md as long_description')
 
 setup(
-    name='nbconflux',
+    name='nb_to_conf',
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     description='Converts Jupyter Notebooks to Atlassian Confluence (R) pages using nbconvert',
@@ -23,12 +23,12 @@ setup(
     license='BSD 3-Clause',
     entry_points = {
         'console_scripts': [
-            'nbconflux = nbconflux.cli:main'
+            'nb_to_conf = nbconflux.cli:main:'
         ]
     },
     install_requires=[
-        'bleach',
-        'nbconvert>=6.0',
+        'bleach==4.1.0',
+        'nbconvert==6.5.3',
         'requests',
         'traitlets',
         'html5lib',
