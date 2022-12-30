@@ -1,17 +1,17 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 
-# nbconflux
+# nb_to_conf
 
-nbconflux converts Jupyter Notebooks to [Atlassian Confluence](https://www.atlassian.com/software/confluence)
+nb_to_conf converts Jupyter Notebooks to [Atlassian Confluence](https://www.atlassian.com/software/confluence)
 pages using
-[nbconvert](https://github.com/jupyter/nbconvert).
+[nb_to_conf](https://github.com/saikonyan/nb_to_conf).
 
 ![Screenshot of a notebook converted to a Confluence page](etc/screenshot.png)
 
 ## Why?
 
-nbconflux is useful when:
+nb_to_conf is useful when:
 
 * You use Jupyter notebooks to author computational narratives
 * Your organization uses Confluence to store institutional knowledge
@@ -39,14 +39,12 @@ nbconflux is useful when:
 
 ## Installation
 
-The nbconflux library requires Python 3 to run and `pip` to install.
+The nb_to_conf library requires Python 3 to run and `pip` to install.
 Once you've satisfied these prerequisites, run:
 
 ```bash
-pip install nbconflux
+pip install git+https://github.com/saikonyan/nb_to_conf 
 ```
-
-(A conda package is coming soon.)
 
 
 ## Usage
@@ -56,12 +54,12 @@ pip install nbconflux
 3. Run one of the following:
     * In a shell:
         ```bash
-        nbconflux /path/to/a.ipynb https://your/page/url
+        nb_to_conf /path/to/a.ipynb https://your/page/url
         ```
     * In a Python script, Jupyter Notebook, etc.:
         ```python
-        import nbconflux
-        html, resources = nbconflux.notebook_to_page(nb_path, url)
+        import nb_to_conf
+        html, resources = nb_to_conf.notebook_to_page(nb_path, url)
         ```
 4. Enter your Confluence username and password when prompted.
 5. Visit the page to see your updates.
@@ -69,10 +67,10 @@ pip install nbconflux
 If you receive an error, see the project issues for known limitations on what
 you can post.
 
-Run `nbconflux -h` at the command line for additional options and help.
+Run `nb_to_conf -h` at the command line for additional options and help.
 
 ```
-usage: nbconflux [-h] [--exclude-toc] [--exclude-ipynb] [--exclude-style]
+usage: nb_to_conf [-h] [--exclude-toc] [--exclude-ipynb] [--exclude-style]
                  [--include-mathjax]
                  notebook url
 
@@ -146,15 +144,3 @@ make dev-env
 make test
 ```
 
-## Maintenance
-
-To make a release:
-
-1. Meet all the requirements described in
-   https://dustingram.com/articles/2018/03/16/markdown-descriptions-on-pypi
-   to support pushing the Markdown README as the long description on PyPI.
-2. `git commit -m 'REL: 0.6.0' --allow-empty`
-3. `git tag -a 0.6.0 -m 'REL: 0.6.0'`
-4. `git push origin master` and `git push origin master --tags` or use a PR
-5. Run `make release`.
-6. Enter your PyPI creds when prompted.
